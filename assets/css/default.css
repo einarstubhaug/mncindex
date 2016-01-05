@@ -1,0 +1,159 @@
+.flag {
+  text-align: left;
+}
+.flag img {
+  height: 20px;
+}
+body {
+  
+    background-color: #222222;
+    font-family: 'Helvetica';
+    color: #FFF;
+    
+}
+.container{
+  max-width:1200px;
+}
+.topRowCol{
+  padding:30px;
+}
+
+.header{
+  /*
+  padding:30px;
+
+  */
+  padding-top:20px;
+  padding-left:10px;
+  padding-right:10px;
+}
+.header h1,.header h2{
+  margin:0px;
+  text-align:center;
+}
+#currselect{
+  margin-bottom:10px;
+}
+#links{
+  border-top:solid 1px #555;
+
+  margin-top:20px;
+
+}
+.marqueeRow{
+    border-top:solid 1px #555;
+}
+.topRowCol{
+  padding-bottom:15px;
+}
+.bottomRow{
+    border-top:solid 1px #555;
+
+    
+}
+.bottomRowCol{
+  margin-top:30px;
+  padding-bottom:50px;
+}
+
+.label{
+  color:#fff;
+  font-size:100%;
+}
+
+
+#container table {
+	width: 100%;
+
+}
+#chart{
+  text-align:left;
+}
+
+.modal-dialog div{
+  margin:0px;
+}
+.modal-body{
+  padding-top:10px;
+  padding-left:10px;
+  margin-left:0px;
+}
+.modal-body img{
+  margin-bottom:10px;
+}
+.modal-body .established {
+  font-weight:bold;
+  margin-bottom:4px;
+}
+#value {
+	color: #ffea00;
+}
+
+.container {
+	
+  background-color: black;
+	
+	border-radius: 10px;
+	border: solid 1px #555;
+	margin-top: 30px;
+}
+
+
+hr {
+   border: none;
+    height: 1px;
+    color: #555; 
+    background-color: #555;
+	
+}
+
+#header h1 {
+	text-align: center;
+	margin-bottom: 0px;
+}
+
+#output td, #output th,#output tr,table td,table th {
+	padding: 3px;
+	border: none;
+	
+}
+
+table th {
+	padding-bottom: 10px;
+}
+
+table {
+	border: none;
+}
+
+#ref {
+	float: right;
+}
+
+.header h1{
+  font-size:36px;
+}
+h2 {
+	font-size: 20px;
+	text-align: center;
+	margin-top: 0px;
+		padding: 0px;
+	letter-spacing: 2px;
+	margin-bottom: 20px;
+}
+
+marquee {
+	margin-bottom: 0px;
+}
+#currencyCalculator td,#currencyCalculator tr{
+  border:none;
+}
+.marquee {
+  overflow: hidden;
+  	color:#ffe600;
+    margin:10px;
+}
+.modal {
+  color:black;
+}
+
