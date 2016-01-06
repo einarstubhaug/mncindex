@@ -61,7 +61,7 @@
         loadTableAndMarquee(url);
         $('#currselect').change(function(){
           var curr = $('#currselect').find(":selected").text();
-          url = '/resources/api/api.php?ref_currency=' + curr;
+          url = '/api/micronations?ref_currency=' + curr;
           loadTableAndMarquee(url);
         })
         var date=new Date();

@@ -207,6 +207,13 @@ echo " Done";
           else { return false; }    
       
       }
+
+      public function getCurrencies () {
+        $this->load->database();
+        $query = $this->db->query("Select * FROM currency");
+        return $query->result();
+      }
+
       public function getMacroISOCodes () {
         $this->load->database();
         $query = $this->db->query("Select m_iso_code from micronation");

@@ -27,7 +27,8 @@ class Currencyindex extends CI_Controller {
 		$this->load->model('Mncindex_model');
 		$data = array(
 			"macroISOCodes" => $this->Mncindex_model->getMacroISOCodes(),
-			"microISOCodes" => $this->Mncindex_model->getMicroISOCodes()
+			"microISOCodes" => $this->Mncindex_model->getMicroISOCodes(),
+			"currencies"	=> $this->Mncindex_model->getCurrencies()
 		);
 		$this->load->view('registerMicronation', $data);
 	}

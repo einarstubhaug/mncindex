@@ -24,7 +24,7 @@ function loadTableAndMarquee(url) {
       $('#output').html(tableString);     
       $('.marquee').html(marqueeString);
       initMarquee();
-      populateSelectBoxes(data);
+      populateSelectBoxes(data, url);
       date=convert_date_mysql_to_javascript(data.micronations[0].lastUpdated);
           $('#lastUpdated').html(date.toString());
       },
@@ -90,13 +90,16 @@ function drawChart(chartId,data,ref_currency) {
    
 }
 
-function populateSelectBoxes(data){
+function populateSelectBoxes(data, url){
     var from=$('#from_currency').val();
-    var to=$('#to_currency').val();
+    var to=$('#to_currency').val();    
+
+    var ref_currency = url.replace(/.*ref_currency=([a-z]+)$/gi, "$1");
     $('#from_currency option').remove(); 
-    $('#to_currency option').remove(); 
-    for (var i=0;i<data.currencies.length;i++){
-      $('#from_currency,#to_currency').append('<option value="' + data.currencies[i].c_iso_code + '">' + data.currencies[i].c_iso_code + '</option>');
+    $('#to_currency option').remove();
+    $('#currselect option').remove(); 
+    for (var c_iso_code in data.currencies){
+      $('#from_currency,#to_currency,#currselect').append('<option value="' + c_iso_code + '">' + c_iso_code + '</option>');
     }
     $('#from_currency,#to_currency').append('<option></option>');
     for (var i=0;i<data.micronations.length;i++){
@@ -105,6 +108,8 @@ function populateSelectBoxes(data){
     }
     $('#from_currency').val(from);
     $('#to_currency').val(to);
+    $('#currselect').val(ref_currency);
+
   }
 
   function calculateCurrency(){
