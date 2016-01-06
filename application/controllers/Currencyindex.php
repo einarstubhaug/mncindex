@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CurrencyIndex extends CI_Controller {
+class Currencyindex extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
