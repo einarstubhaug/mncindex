@@ -14,6 +14,7 @@
 
      <!-- custom css-->
     <link rel="stylesheet" href="/assets/css/default.css">
+    <script type="text/javascript" src="/assets/js/thirdparty/angular1-5-0.min.js"></script>
 
     <script type="text/javascript" src="/assets/js/jqplot/src/jquery.jqplot.js"></script>
     <script type="text/javascript" src="/assets/js/jqplot/src/plugins/jqplot.canvasTextRenderer.js"></script>
@@ -32,7 +33,7 @@
 
     <meta charset='utf-8'/> 
 
-    <script type="text/JavaScript">
+    <!--script type="text/JavaScript">
       var globalData;
      function initMarquee(){
         $('.marquee').marquee({
@@ -68,9 +69,9 @@
         var refreshId = setInterval(function(){
           loadTableAndMarquee(url);
           
-        }, 10000); // Each minute
+        }, 60000); // Each minute
         createClock();
       });
-    </script>
+    </script-->
 
 </head>

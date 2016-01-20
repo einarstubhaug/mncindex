@@ -91,8 +91,8 @@ function drawChart(chartId,data,ref_currency) {
 }
 
 function populateSelectBoxes(data, url){
-    var from=$('#from_currency').val();
-    var to=$('#to_currency').val();    
+    var from=$('#from_currency').val() || data.micronations[0].m_iso_code;
+    var to=$('#to_currency').val() || data.micronations[1].m_iso_code;
 
     var ref_currency = url.replace(/.*ref_currency=([a-z]+)$/gi, "$1");
     $('#from_currency option').remove(); 
@@ -110,6 +110,8 @@ function populateSelectBoxes(data, url){
     $('#to_currency').val(to);
     $('#currselect').val(ref_currency);
 
+    calculateCurrency();
+
   }
 
   function calculateCurrency(){
@@ -120,9 +122,8 @@ function populateSelectBoxes(data, url){
     }
     var from_in_dollars=findDollarValue($('#from_currency').val());
     var to_in_dollars=findDollarValue($('#to_currency').val());
-    console.debug(from_in_dollars + ' ' + to_in_dollars);
     var result=(from_in_dollars/to_in_dollars) * $('#from_value').val();
-    $('#to_value').val(result)
+    $('#to_value').val(result.toFixed(3));
   }
   function findDollarValue(iso){
     for (var i=0;i < data.currencies.length;i++){
