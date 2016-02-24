@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html>
 <?php $this->view('head'); ?>
-<body>
+<body ng-app="mncindex">
     <script>
-        var mncindex = angular.module('mncindex', []);
+        
 
-        mncindex.service('dataFetcher', function($http) {
-            var me = this;
-            $http.get('/api/micronations').
-                success(function(data) {
-                me.micronations = data.micronations;
-            });
-        });
+        var showMarquee = function (string) {
+            $('.marquee').html(string) .marquee({duration: 30000});
+        }
 
-        mncindex.controller('currencytable', function ($scope, dataFetcher) {
-            var me = this;
-            $scope.micronations = dataFetcher.micronations;
-        });
+        function createClock(){
+            var date=new Date();
+            $('#clock').html(date.toString());
+            setTimeout(function(){createClock()},1000);
+        }
+
+        createClock();
+
+
     </script>
-    <div ng-app="mncindex">
-        <div ng-controller="currencytable as ct">
-            table her
-            <table>
-                <tr ng-repeat="nation in micronations">
-                    <td>{{nation.m_iso_code}}</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <?php //$this->view('content'); ?>
-    <?php //$this->view('modal'); ?>
+
+    <?php $this->view('content'); ?>
+    <?php $this->view('modal'); ?>
 </body>
 </html>

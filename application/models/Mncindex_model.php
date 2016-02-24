@@ -54,9 +54,9 @@ class Mncindex_model extends CI_Model {
         $row = $query->row();
         $refCurrencyValueToDollar = $row->value_to_dollar;
         
-        $query = $this->db->query("SELECT m.nation_name, m.currency_name,m.date_established,m.website_link,m.m_iso_code, rel.c_iso_code,rel.pegged_value, (Select value_to_dollar FROM currency_history
-     WHERE c_iso_code=rel.c_iso_code AND datetime=max(ch.datetime)) / $refCurrencyValueToDollar  AS value_to_dollar,(Select value_to_dollar FROM currency_history
-     WHERE c_iso_code=rel.c_iso_code AND datetime=max(ch.datetime))  AS value_to_dollar_orig,(Select max(datetime) from currency_history) as lastUpdated
+        $query = $this->db->query("SELECT m.nation_name, m.currency_name,m.date_established,m.website_link,m.m_iso_code, rel.c_iso_code,rel.pegged_value, ((Select value_to_dollar FROM currency_history
+     WHERE c_iso_code=rel.c_iso_code AND datetime=max(ch.datetime)) * rel.pegged_value) / $refCurrencyValueToDollar  AS value_to_ref_currency,(Select value_to_dollar FROM currency_history
+     WHERE c_iso_code=rel.c_iso_code AND datetime=max(ch.datetime))  AS value_to_dollar,(Select max(datetime) from currency_history) as lastUpdated
         FROM micronation m, currency_history ch, rel_nation_currency rel
         WHERE rel.m_iso_code = m.m_iso_code
         AND rel.c_iso_code = ch.c_iso_code 
@@ -88,7 +88,10 @@ class Mncindex_model extends CI_Model {
          array_push($currencies[$ch->c_iso_code]['currency_history'],array($ch->date,floatval($ch->value_to_dollar)));
     }
 
-        return array('micronations' => $micronations, 'currencies' => $currencies);
+        return array(
+          'micronations' => $micronations,
+          'currencies' => $currencies,
+          'ref_currency' => $ref_currency);
     }
 
     public function registerMicronationForm () {
@@ -100,7 +103,7 @@ class Mncindex_model extends CI_Model {
                                 $_POST["recaptcha_challenge_field"],
                                 $_POST["recaptcha_response_field"]);
 
-      if (!$resp->is_valid && 0) {
+      if (!$resp->is_valid) {
         // What happens when the CAPTCHA was entered incorrectly
         die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
          "(reCAPTCHA said: " . $resp->error . ")");

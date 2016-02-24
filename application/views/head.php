@@ -33,45 +33,7 @@
 
     <meta charset='utf-8'/> 
 
-    <!--script type="text/JavaScript">
-      var globalData;
-     function initMarquee(){
-        $('.marquee').marquee({
-        //speed in milliseconds of the marquee
-        speed: 60000,
-        //gap in pixels between the tickers
-        gap: 20,
-        //time in milliseconds before the marquee will start animating
-        delayBeforeStart: 0,
-        //'left' or 'right'
-        direction: 'left',
-        //true or false - should the marquee be duplicated to show an effect of continues flow
-        duplicated: true
-      });
-
-      }
-
-      function createClock(){
-        var date=new Date();
-        $('#clock').html(date.toString());
-        setTimeout(function(){createClock()},400);
-      }
-
-      $(document).ready(function() {
-          var url = '/api/micronations?ref_currency=USD';
-        loadTableAndMarquee(url);
-        $('#currselect').change(function(){
-          var curr = $('#currselect').find(":selected").text();
-          url = '/api/micronations?ref_currency=' + curr;
-          loadTableAndMarquee(url);
-        })
-        var date=new Date();
-        var refreshId = setInterval(function(){
-          loadTableAndMarquee(url);
-          
-        }, 60000); // Each minute
-        createClock();
-      });
-    </script-->
+    <script src="/assets/js/mncindex_app/app.js"></script>
+    <script src="/assets/js/mncindex_app/controllers/currencycalculator.js"></script>
 
 </head>
