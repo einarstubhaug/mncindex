@@ -6,8 +6,8 @@ class Mncindex_model extends CI_Model {
       {
           return array (substr($source, 0, 3), substr($source, 3, 3));
       }
-      
-      
+
+
       function computeRate($rate){
           //return (floatval($rate->Bid) + floatval($rate->Ask)) / 2.0;
           return $rate->Bid;
@@ -19,7 +19,6 @@ class Mncindex_model extends CI_Model {
       foreach ($xml->Rate as $rate) {
           $bothCurrencyNames = $rate->attributes()->Symbol;
           list ($firstCurrency, $secondCurrency) = splitCurrencyNames($bothCurrencyNames);
-  
           $c_iso_code=null;
           $our_rate=null;
           if($firstCurrency=='USD'){
@@ -29,15 +28,14 @@ class Mncindex_model extends CI_Model {
               $c_iso_code=$firstCurrency;
           }
           if($this->isCurrencyInDatabase($c_iso_code)){
-              $our_rate=computeRate($rate);            
+              $our_rate=computeRate($rate);
               if($c_iso_code==$secondCurrency){
                   $our_rate=1/floatval($our_rate);
               }
               $this->insertCurrencyInDatabase($c_iso_code,$our_rate);
-          }              
+          }
       }
 
-      
 
     }
     public function getMicronations () {
@@ -45,7 +43,7 @@ class Mncindex_model extends CI_Model {
         // $this->db->select('nation_name, currency_name, date_established, website_link, micronation.m_iso_code, c_iso_code, pegged_value, (Select max(datetime) FROM currency_history)');
         // $this->db->from('micronation');
         // $this->db->join('rel_nation_currency', 'micronation.m_iso_code = rel_nation_currency.m_iso_code');    
-        // 
+        //
         $ref_currency = $this->input->get("ref_currency");
         if (empty($ref_currency)) {$ref_currency = "USD";}
 
@@ -53,7 +51,7 @@ class Mncindex_model extends CI_Model {
         $query = $this->db->query("SELECT * FROM currency_history WHERE c_iso_code = '$ref_currency' ORDER BY datetime desc limit 1");
         $row = $query->row();
         $refCurrencyValueToDollar = $row->value_to_dollar;
-        
+
         $query = $this->db->query("SELECT m.nation_name, m.currency_name,m.date_established,m.website_link,m.m_iso_code, rel.c_iso_code,rel.pegged_value, ((Select value_to_dollar FROM currency_history
      WHERE c_iso_code=rel.c_iso_code AND datetime=max(ch.datetime)) * rel.pegged_value) / $refCurrencyValueToDollar  AS value_to_ref_currency,(Select value_to_dollar FROM currency_history
      WHERE c_iso_code=rel.c_iso_code AND datetime=max(ch.datetime))  AS value_to_dollar,(Select max(datetime) from currency_history) as lastUpdated
@@ -72,14 +70,13 @@ class Mncindex_model extends CI_Model {
         {
             $currencies[$currency['c_iso_code']] = $currency;
         }
-    
 
     // get currency histories 
     $query = $this->db->query("SELECT ch.c_iso_code, DATE(ch.datetime) as date,(Select AVG(ch.value_to_dollar) ) AS value_to_dollar
          FROM currency_history ch
          WHERE 
           ch.datetime > (current_date - interval 1 month)
-         group by ch.c_iso_code,YEAR(ch.datetime),MONTH(ch.datetime),DAY(ch.datetime);
+         group by ch.c_iso_code,ch.datetime, YEAR(ch.datetime),MONTH(ch.datetime),DAY(ch.datetime);
          ");
     foreach ($query->result() as $ch) {
         if(! isset($currencies[$ch->c_iso_code]['currency_history'])){
