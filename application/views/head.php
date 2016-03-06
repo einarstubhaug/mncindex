@@ -1,7 +1,7 @@
 <head>
     <!--link rel="stylesheet" type="text/css" href="default.css"-->
     <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script-->
-    <script type="text/javascript" src="/assets/js/jqplot/src/jquery.js"></script>
+    <script type="text/javascript" src="/assets/js/thirdparty/jquery-1.12.1.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
         <!-- Latest compiled and minified JavaScript -->
