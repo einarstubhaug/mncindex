@@ -36,5 +36,5 @@
   <br /><br />
   <b>03.01.2014</b>
   <br />
-  Fill in form for micronations who wants to register is <a href="form.php">now available</a>
+  Fill in form for micronations who wants to register is <a href="/currencyindex/registernation">now available</a>
 </div>

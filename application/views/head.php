@@ -1,4 +1,4 @@
-d<head>
+<head>
     <!--link rel="stylesheet" type="text/css" href="default.css"-->
     <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script-->
     <script type="text/javascript" src="/assets/js/jqplot/src/jquery.js"></script>
@@ -24,7 +24,7 @@ d<head>
     <script type="text/javascript" src="/assets/js/thirdparty/jqplot-plugins/jqplot.dateAxisRenderer.js"></script>
     <script type="text/javascript" src="/assets/js/thirdparty/jqplot-plugins/jqplot.cursor.js"></script>
     <script type="text/javascript" src="/assets/js/thirdparty/jqplot-plugins/jqplot.highlighter.js"></script>
-    
+
     <link rel="stylesheet" type="text/css" href="/assets/css/thirdparty/jquery.jqplot.min.css" />
     <script type="text/javascript" src="/assets/js/mncindex.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
