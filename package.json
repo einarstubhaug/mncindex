@@ -1,0 +1,23 @@
+{
+  "name": "mncindex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/einarstubhaug/mncindex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/einarstubhaug/mncindex/issues"
+  },
+  "homepage": "https://github.com/einarstubhaug/mncindex#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^1.0.0"
+  }
+}
