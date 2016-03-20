@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '127.0.0.1',
-	'username' => 'root',
-	'password' => '',
+	'hostname' => 'mncindex.com.mysql',
+	'username' => 'mncindex_com',
+	'password' => 'monopoldb',
 	'database' => 'mncindex_com',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

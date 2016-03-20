@@ -15,6 +15,8 @@ class Api extends CI_Controller {
 
     public function flag ($misocode) {
         header('Content-type: image/png');
-        readfile (FCPATH . "assets/img/flags/" . $misocode . ".png");
+        if (file_exists(FCPATH . "assets/img/flags/" . $misocode . ".png")){
+		readfile (FCPATH . "assets/img/flags/" . $misocode . ".png");
+    	}
     }
 }
