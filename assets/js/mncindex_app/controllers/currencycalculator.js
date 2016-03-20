@@ -1,4 +1,4 @@
-mncindex.controller('currencycalculator', function ($scope, dataFetcher) {
+mncindex.controller('currencycalculator', ['$scope', 'dataFetcher', function ($scope, dataFetcher) {
         $scope.dataFetcher = dataFetcher;
         $scope.selectedFromValue = 'EUR';
         $scope.selectedToValue = 'USD';
@@ -24,4 +24,4 @@ mncindex.controller('currencycalculator', function ($scope, dataFetcher) {
              }
          }
      }
-});
+}]);

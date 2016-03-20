@@ -1,6 +1,6 @@
     var mncindex = angular.module('mncindex', []);
 
-    mncindex.service('dataFetcher', function ($http, $timeout) {
+    mncindex.service('dataFetcher', ['$http', '$timeout', function ($http, $timeout) {
         var me = this;
         me.micronations= [];
         me.ref_currency = 'USD';
@@ -34,7 +34,7 @@
            }
            return values;
        }
-   });
+   }]);
     
 
     mncindex.controller('currencytable', ["$scope", "dataFetcher", "$timeout", function($scope, dataFetcher, $timeout) {
@@ -65,7 +65,7 @@
         $('.marquee').html(string) .marquee({duration: 30000});
     }
 
-    mncindex.controller('marquee', function ($scope, dataFetcher){
+    mncindex.controller('marquee', ['$scope', 'dataFetcher', function ($scope, dataFetcher){
         $scope.dataFetcher = dataFetcher;
         $scope.$watch('dataFetcher.micronations', function (newVal){
             var string = '';
@@ -74,7 +74,7 @@
            });
             showMarquee(string);
         })
-    });    
+    }]);    
 
     
 

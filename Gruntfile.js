@@ -11,9 +11,11 @@ module.exports = function(grunt) {
         src: ['assets/js/thirdparty/jquery.jqplot.min.js', 'assets/js/thirdparty/jqplot-plugins/*'],
         dest: 'assets/js/thirdparty/jqplot-bundle.min.js'
       },
-      build: {
-        src: 'src/<%= pkg.name %>.js',
-        dest: 'build/<%= pkg.name %>.min.js'
+      mncindex: {
+        src: [
+          'assets/js/mncindex.js', 'assets/js/mncindex_app/app.js',
+          'assets/js/mncindex_app/controllers/**.js'],
+        dest: 'assets/js/mncindex_bundle.min.js'
       }
     }
   });

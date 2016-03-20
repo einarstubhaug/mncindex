@@ -28,12 +28,10 @@
 
     <link rel="stylesheet" type="text/css" href="/assets/css/thirdparty/jquery.jqplot.min.css" />
     
-    <script type="text/javascript" src="/assets/js/mncindex.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="/assets/js/jquery.marquee.min.js"></script>
 
-    <script src="/assets/js/mncindex_app/app.js"></script>
-    <script src="/assets/js/mncindex_app/controllers/currencycalculator.js"></script>
+    <script src="/assets/js/mncindex_bundle.min.js"></script>
 
 </head>
